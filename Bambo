@@ -1,4 +1,4 @@
--- Source shared by y277q 
+-- Source shared by araujozwx 
 
 if getgenv().Nousigi then 
 	if game.CoreGui:FindFirstChild("Night Mystic GUI") then
@@ -19,7 +19,7 @@ local T1UIColor = {
     ["Setting Icon Color"] = Color3.fromRGB(75, 165, 40),
     ["Logo Image"] = "rbxassetid://132601018717001",
     ["Search Icon Color"] = Color3.fromRGB(75, 165, 40),
-    ["Search Icon Highlight Color"] = Color3.fromRGB(75, 165, 40),
+    ["Search Icon Highlight Color"] = Color3.fromRGB(139, 0, 0),
     ["GUI Text Color"] = Color3.fromRGB(240, 240, 240),
     ["Text Color"] = Color3.fromRGB(240, 240, 240),
     ["Placeholder Text Color"] = Color3.fromRGB(100, 100, 100),
@@ -37,7 +37,7 @@ local T1UIColor = {
     ["Section Underline Color"] = Color3.fromRGB(75, 165, 40),
     ["Toggle Border Color"] = Color3.fromRGB(75, 165, 40),
     ["Toggle Checked Color"] = Color3.fromRGB(75, 165, 40),
-    ["Toggle Desc Color"] = Color3.fromRGB(180, 180, 180),
+    ["Toggle Desc Color"] = Color3.fromRGB(75, 165, 40),
     
     ["Button Color"] = Color3.fromRGB(75, 165, 40),
     ["Label Color"] = Color3.fromRGB(75, 165, 40),
@@ -146,7 +146,7 @@ mainButton.Size = UDim2.new(0, 60, 0, 60)
 mainButton.Position = UDim2.new(0, 15, 1, -75) 
 mainButton.Draggable = true
 mainButton.AnchorPoint = Vector2.new(0, 1)
-mainButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+mainButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 mainButton.BackgroundTransparency = 0.2
 mainButton.BorderSizePixel = 0
 mainButton.AutoButtonColor = false
@@ -178,10 +178,10 @@ local zoomedIn = false
 local faded = false
 
 if isToggled then
-    mainButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    mainButton.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
     ImageLabel.Size = UDim2.new(0, 27, 0, 27)
 else
-    mainButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    mainButton.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
     ImageLabel.Size = UDim2.new(0, 40, 0, 40)
 end
 
@@ -265,7 +265,7 @@ end)
 
 mainButton.MouseLeave:Connect(function()
     isHovering = false
-    local targetColor = isToggled and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(255, 255, 255)
+    local targetColor = isToggled and Color3.fromRGB(15, 15, 15) or Color3.fromRGB(45, 45, 45)
     
     TweenService:Create(mainButton, fluentTweenInfo, {
         Size = UDim2.new(0, 60, 0, 60),
@@ -305,7 +305,7 @@ mainButton.MouseButton1Click:Connect(function()
         Size = isToggled and UDim2.new(0, 27, 0, 27) or UDim2.new(0, 40, 0, 40)
     })
     
-    local targetColor = isToggled and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(255, 255, 255)
+    local targetColor = isToggled and Color3.fromRGB(15, 15, 15) or Color3.fromRGB(45, 45, 45)
     local colorTween = TweenService:Create(mainButton, defaultTweenInfo, {
         BackgroundColor3 = targetColor
     })
@@ -350,7 +350,7 @@ Library.ToggleUI = function()
         Size = isToggled and UDim2.new(0, 27, 0, 27) or UDim2.new(0, 40, 0, 40)
     })
     
-    local targetColor = isToggled and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(255, 255, 255)
+    local targetColor = isToggled and Color3.fromRGB(15, 15, 15) or Color3.fromRGB(45, 45, 45)
     local colorTween = TweenService:Create(mainButton, defaultTweenInfo, {
         BackgroundColor3 = targetColor
     })
@@ -467,7 +467,7 @@ local libCreateNoti = function(Setting)
 	local colorG = tostring(Library_Function.Getcolor(getgenv().UIColor['Title Text Color'])[2])
 	local colorB = tostring(Library_Function.Getcolor(getgenv().UIColor['Title Text Color'])[3])
 	local color = colorR .. ',' .. colorG .. ',' .. colorB
-    TextLabelNoti.Text = "<font color=\"rgb(" .. tostring(color or "72, 202, 228") .. ")\">" .. tostring(TitleNameMain or "Banana hub") .. "</font> " .. tostring(getgenv().TitleNameNoti or "")
+    TextLabelNoti.Text = "<font color=\"rgb(" .. tostring(color or "72, 202, 228") .. ")\">" .. tostring(TitleNameMain or "Night Mystic") .. "</font> " .. tostring(getgenv().TitleNameNoti or "")
     
 	TextLabelNoti.Name = "TextLabelNoti"
 	TextLabelNoti.Parent = Topnoti
@@ -574,7 +574,7 @@ function Library:Notify(Setting, bypass)
 end
 
 function Library:CreateWindow(Setting)
-    local TitleNameMain = Setting.Title or "banana hub"
+    local TitleNameMain = Setting.Title or "Night Mystic"
     getgenv().MainDesc = Setting.Desc or Setting.Subtitle or ""
     
     if Setting.Image then
@@ -704,7 +704,7 @@ function Library:CreateWindow(Setting)
 	TextLabelMain.TextWrapped = true
 	TextLabelMain.TextXAlignment = Enum.TextXAlignment.Left
 	TextLabelMain.TextColor3 = getgenv().UIColor["GUI Text Color"]
-   TextLabelMain.Text = "<font color=\"rgb(75, 165, 40)\">" .. tostring(TitleNameMain or "banana hub") .. "</font> <font color=\"rgb(255,255,255)\">" .. tostring(getgenv().MainDesc or "") .. "</font>"
+   TextLabelMain.Text = "<font color=\"rgb(75,165,40)\">" .. tostring(TitleNameMain or "Night Mystic") .. "</font> <font color=\"rgb(255,255,255)\">" .. tostring(getgenv().MainDesc or "") .. "</font>"
 	PageControl.Name = "Background1"
 	PageControl.Parent = Concacmain
 	PageControl.Position = UDim2.new(0, 5, 0, 0)
@@ -1058,7 +1058,7 @@ function Library:CreateWindow(Setting)
 		PageButton.Size = UDim2.new(1, 0, 1, 0)
 		PageButton.Font = Enum.Font.SourceSans
 		PageButton.Text = ""
-		PageButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+		PageButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 		PageButton.TextSize = 14.000
 
 
@@ -1357,7 +1357,7 @@ function Library:CreateWindow(Setting)
 				VisibilityButton.AnchorPoint = Vector2.new(1, 0.5)
 				VisibilityButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				VisibilityButton.BackgroundTransparency = 1.000
-				VisibilityButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
+				VisibilityButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				VisibilityButton.BorderSizePixel = 0
 				VisibilityButton.Font = Enum.Font.SourceSans
 				VisibilityButton.Text = ""
@@ -1370,7 +1370,7 @@ function Library:CreateWindow(Setting)
 				VisibilitySectionFrame.Parent = Topsec
 				VisibilitySectionFrame.AnchorPoint = Vector2.new(1, 0.5)
 				VisibilitySectionFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-				VisibilitySectionFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+				VisibilitySectionFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 				VisibilitySectionFrame.BorderSizePixel = 0
 				VisibilitySectionFrame.Position = UDim2.new(1, -5, 0.5, 0)
 				VisibilitySectionFrame.Size = UDim2.new(0, 20, 0, 20)
@@ -1482,7 +1482,7 @@ function Library:CreateWindow(Setting)
 				checkbox.BackgroundColor3 = Color3.fromRGB(230, 230, 230)
 				checkbox.BackgroundTransparency = 1.000
 				checkbox.Position = UDim2.new(1, -5, 0.5, 0)
-				checkbox.Size = UDim2.new(0, 20, 0, 20)
+				checkbox.Size = UDim2.new(0, 22, 0, 22)
 				checkbox.Image = "rbxassetid://4552505888"
 				checkbox.ImageColor3 = getgenv().UIColor["Toggle Border Color"]
 				
